@@ -1,4 +1,4 @@
-var inquirer = require ('inquirer');
+var inquirer = require('inquirer');
 
 function BasicCard(front, back){
 	this.front = front;
@@ -36,7 +36,7 @@ var ask = function(){
 		inquirer.prompt([
 		{
 			name: "response",
-			message: questions[count].font
+			message: questions[count].front
 		}
 		]).then(function(answers){
 			if(answers.response===questions[count].back){
@@ -64,7 +64,7 @@ var ask = function(){
 					start();
 					end = false;
 				}else{
-					console.log("Bye.")
+					console.log("Bye.");
 				}
 			});
 		}
@@ -117,7 +117,6 @@ var  start = function(){
 	]).then(function(answers){
 		if(answers.start === "Basic"){
 			ask();
-			console.log("ok?")
 		}else{
 			askCloze();
 		}
