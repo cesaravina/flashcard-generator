@@ -5,6 +5,19 @@ function BasicCard(front, back){
 	this.back = back;
 }
 
+// The text for cloze cards should include the cloze answer
+// So if the full text of a cloze was:
+
+// "Cesar is a super awesome dude!"
+
+// and the claze partial was:
+
+// "... is a super awesome dude!"
+
+// and the cloze answer would be:
+
+// "Cesar"
+
 function ClozeCard(text, cloze){
 	this.text = text;
 	this.cloze = cloze;
@@ -24,9 +37,10 @@ var z1 = new ClozeCard("What is the meaning of life?","42");
 var z2 = new ClozeCard("What are Anakin and Luke missing?","a hand");
 var z3 = new ClozeCard("In Pulp Fiction, in which round is Butch supposed to go down?","5th");
 var z4 = new ClozeCard("In Fast and the Furious, where does Jesse overnight parts from?","Japan");
-var z5 = new ClozeCard("Which team blew a 3-1 lead in the finals?","The Warriors");
+var z5 = new ClozeCard("Which team blew a 3-1 lead in the finals?","The Warriors"); // such a scrub team, right?
 
 var count = 0;
+// I liked this method of setting up your question arrays
 var questions = [b1, b2, b3, b4, b5];
 var clozeCards = [z1, z2, z3, z4, z5];
 
@@ -88,6 +102,7 @@ var askCloze = function() {
 	}else{
 		var end = true;
 		count = 0;
+		// this will always evaluate to true since you're setting `end = true` a couple lines above here..
 		if (end === true){
 			inquirer.prompt([
 			{
@@ -98,6 +113,8 @@ var askCloze = function() {
 			]).then(function(answers){
 				if(answers.game === true){
 					start();
+					// seems like this `end` flag might be leftover logic from a different iteration of this since 
+					// it no longer seems to affect how things operate.
 					end = false;
 				}else{
 					console.log("Bye.")
