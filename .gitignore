@@ -1,2 +1,5 @@
-.gitignore
+# you don't want to ignore your .gitignore
+# .gitignore
+# it looks like you probably added this after you'd already checked in your node_modules with git
+# Check out this link to find out how to remove node_modules from being tracked --> https://gist.github.com/paulallies/0052fab554b14bbfa3ef
 node_modules
